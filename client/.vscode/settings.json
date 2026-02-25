@@ -1,7 +1,20 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
-    "source.sortMembers": "explicit"
-  }
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  "tailwindCSS.includeLanguages": {
+    "typescript": "typescriptreact"
+  },
+
+  "tailwindCSS.classAttributes": ["class", "className"],
+
+  "tailwindCSS.experimental.classRegex": [["className\\s*=\\s*\"([^\"]*)\""], ["className\\s*=\\s*`([^`]*)`"]],
+
+  "tailwindCSS.experimental.configFile": "./tailwind.config.js",
+
+  "tailwindCSS.validate": true,
+  "tailwindCSS.lint.invalidVariant": "error",
+  "tailwindCSS.lint.invalidConfigPath": "error",
+  "tailwindCSS.lint.invalidScreen": "error"
 }

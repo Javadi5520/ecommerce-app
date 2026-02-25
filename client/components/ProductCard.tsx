@@ -4,7 +4,7 @@ import { Product, ProductCardProps } from "@/constants/types";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants";
-import { useWishlist } from "@/context/WishListContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { toggleWishlist, isInWishlist } = useWishlist();
@@ -18,6 +18,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <TouchableOpacity
             className="absolute top-2 right-2 z-10 p-2 bg-white rounded-full shadow-sm"
             onPress={(e) => {
+              e.preventDefault();
               e.stopPropagation();
               toggleWishlist(product);
             }}
