@@ -5,8 +5,11 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants";
 // سطر پایین اضافه شده
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useCart } from "@/context/CartContext";
 
 export default function TabLayout() {
+  const { cartItems } = useCart();
+
   // سطر پایین اضافه شده
   const insets = useSafeAreaInsets();
   return (
@@ -37,7 +40,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cart"
         options={{
-          tabBarIcon: ({ color, focused }) => <Feather name={focused ? "shopping-cart" : "shopping-cart"} size={26} color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <View className="relative">
+              <Feather name={focused ? "shopping-cart" : "shopping-cart"} size={26} color={color} />
+              {cartItems.length > 0 && (
+                <View className="absolute -top-2 -right-2 bg-accent size-3 rounded-full items-center justify-center">
+                  <Ionicons name="ellipse" size={6} color="white" />
+                </View>
+              )}
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
